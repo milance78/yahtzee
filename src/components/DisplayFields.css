@@ -1,0 +1,26 @@
+.field {
+    width: 80px;
+    min-height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 25px;
+    color: rgb(97, 111, 1);
+}
+.field-container {
+    margin-left: 100px;
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.field-container label {
+    height: 40px;
+    width: 40px;
+}
+.field-container label img {
+    width: 100%;
+}
