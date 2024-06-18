@@ -12,14 +12,14 @@ const Dices = () => {
     const { currentDices } = useCurrentDicesContext();
     const { currentPlayer } = useCurrentPlayerContext();
  
-    useEffect(() => {
+    useEffect(() => {        
         setResults(prev =>
             prev.map((el, i) =>
                 i + 1 === currentPlayer
                     ? Field.buildResultsArray(currentDices)
                     : el)
         )
-    }, [currentDices, setResults])
+    }, [currentDices, currentPlayer, setResults])
 
     return (
         <div className='dices'>

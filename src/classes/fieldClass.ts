@@ -28,6 +28,9 @@ export class Field {
     this.countDicesStatistics();
     this.countMultipleEqualDices();
     this.countFullHouse();
+    this.countStraights();
+
+
     this.setPossibleFieldValue();
   }
 
@@ -73,7 +76,7 @@ export class Field {
       && this.currentDices.includes(4)
       && this.currentDices.includes(5)
     ) {
-      this.smallStreight = 30;
+      this.smallStreight = 30;  
     }
     if (this.currentDices.includes(2)
       && this.currentDices.includes(3)
@@ -87,7 +90,7 @@ export class Field {
   // static method - completely independent from a class
   static buildResultsArray = (currentDicesArray: number[]) => {
     let playerResults: Field[] = [];
-    fieldsNames.forEach((name, i) => 
+    fieldsNames.forEach((name, i) =>
       playerResults = [
         ...playerResults,
         new Field(name, i, currentDicesArray)
