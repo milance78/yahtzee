@@ -1,0 +1,41 @@
+.results-display {
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
+    flex-wrap: wrap;
+
+    .field-container {   
+        display: flex;
+        width: 140px;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+        label {
+            height: 27px;
+            width: 50px;
+            user-select: none;
+            img {
+                display: block;
+                margin: auto;
+                width: 27px
+            }
+        }
+        .field {
+            width: 80px;
+            min-height: 40px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            text-align: center;
+            padding: 5px 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            color: rgb(97, 111, 1);
+            border: solid #4CCD99
+        }
+    }
+
+
+    
+}

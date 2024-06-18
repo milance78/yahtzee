@@ -1,0 +1,15 @@
+.dice {
+    margin: 15px;
+    width: 68px;
+    height: 68px;
+}
+
+.rotation-animation {
+    animation-name: rotation;
+    animation-duration: 6s;
+}
+
+@keyframes rotation {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(1800deg)}
+}

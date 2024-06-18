@@ -2,18 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter } from 'react-router-dom'
+import { IsRollingContextProvider } from './contexts/IsRollingContext';
+import { IsDisabledContextProvider } from './contexts/isDisabledContext';
+import { ResultsContextProvider } from './contexts/resultsContext';
+import { CurrentPlayerContextProvider } from './contexts/currentPlayerContext';
+import { CurrentDicesContextProvider } from './contexts/currentDicesContext';
+import { RollCounterContextProvider } from './contexts/rollCounterContext';
+import { NumberOfPlayersContextProvider } from './contexts/numberOfPlayers';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <NumberOfPlayersContextProvider>
+    <RollCounterContextProvider>
+      <CurrentDicesContextProvider>
+        <ResultsContextProvider>
+          <CurrentPlayerContextProvider>
+            <IsDisabledContextProvider>
+              <IsRollingContextProvider>
+                <BrowserRouter>
+                  <React.StrictMode>
+                    <App />
+                  </React.StrictMode>
+                </BrowserRouter>
+              </IsRollingContextProvider>
+            </IsDisabledContextProvider>
+          </CurrentPlayerContextProvider>
+        </ResultsContextProvider>
+      </CurrentDicesContextProvider>
+    </RollCounterContextProvider>
+  </NumberOfPlayersContextProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

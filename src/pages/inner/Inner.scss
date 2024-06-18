@@ -1,0 +1,32 @@
+.inner {
+    height: 100vh;
+    display: flex;
+    .dices-section {
+        width: 50%;
+        background: #4CCD99;
+        .roll-button {
+            margin-top: 100px;
+            margin-left: 100px;
+            height: 50px;
+            width: 100px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            background: #007F73;
+            transition: .3s ease;
+            box-shadow: 1.5px 1.5px 3px 0px rgba(158, 155, 158, 1);
+            user-select: none;
+            color: white;
+        }
+
+        .roll-button-disabled {
+            background: #439b92;
+            box-shadow: inset 1.5px 1.5px 3px 0px rgba(158, 155, 158, 1);
+        }
+    }
+
+    .results-section {
+        width: 50%;
+    }
+}
