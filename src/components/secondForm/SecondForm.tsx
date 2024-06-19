@@ -3,6 +3,7 @@ import './SecondForm.scss'
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import { Link } from 'react-router-dom';
 import { useNumberOfPlayersContext } from '../../contexts/numberOfPlayers';
+import { useResultsContext } from '../../contexts/resultsContext';
 
 interface IProps {
   setSlider: React.Dispatch<React.SetStateAction<string>>
@@ -10,7 +11,8 @@ interface IProps {
 
 const SecondForm: React.FC<IProps> = ({ setSlider }) => {
   const { numberOfPlayers } = useNumberOfPlayersContext();
-  const test = [1, 2, 3, 4]
+  const { results } = useResultsContext();
+  
 
   const submitHandler = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -29,13 +31,13 @@ const SecondForm: React.FC<IProps> = ({ setSlider }) => {
           flexDirection: 'column',
         }}>
         {
-          test.map((el) => <TextField
-            key={el}
+          results.map((el, i) => <TextField
+            key={i}
             sx={{
               marginBottom: '10px',
             }}
-            className={`user-input No${el}`}
-            label={`Player ${el}`}
+            className={`user-input No${i + 1}`}
+            label={`Player ${i + 1}`}
             variant="standard"
             color="primary" />)
         }

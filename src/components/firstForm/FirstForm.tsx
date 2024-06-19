@@ -4,25 +4,29 @@ import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@m
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNumberOfPlayersContext } from '../../contexts/numberOfPlayers';
 import { useResultsContext } from '../../contexts/resultsContext';
+import { useCurrentDicesContext } from '../../contexts/currentDicesContext';
+import { Field } from '../../classes/fieldClass';
 
 interface IProps {
     setSlider: React.Dispatch<React.SetStateAction<string>>
 }
 const FirstForm: React.FC<IProps> = ({ setSlider }) => {
     const { numberOfPlayers, setNumberOfPlayers } = useNumberOfPlayersContext();
+    const {currentDices} = useCurrentDicesContext();
     const {setResults} = useResultsContext();
 
     const initializePlayers = () => {
-
+        setResults([]);
+        for (let index = 0; index < numberOfPlayers; index++) {    
+            setResults(prev =>[...prev, Field.buildResultsArray(currentDices)]);
+        }    
     }
 
     
 
     const submitHandler = (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
-        console.log('submit');
-        console.log(numberOfPlayers);
-        
+        initializePlayers();    
         setSlider('forms-container slide-left');
     }
 
